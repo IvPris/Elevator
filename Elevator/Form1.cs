@@ -24,6 +24,8 @@ namespace Elevator
             label2.Text = floor.ToString();
             pictureBox5.Hide();
             pictureBox6.Hide();
+            pictureBox9.Hide();
+            pictureBox10.Hide();
 
         }
 
@@ -52,12 +54,44 @@ namespace Elevator
                 {
                     peopleCount = Int32.Parse(textBox1.Text);
                 }
-                if (peopleCount < 12)
+                if (peopleCount < 13)
                 {
                     pictureBox1.SendToBack();
                     pictureBox5.Show();
                     await Task.Delay(1000);
                     pictureBox5.Hide();
+
+                    pictureBox3.BringToFront();
+                    floor = 1;
+                    peopleCount = 0;
+                    label2.Text = floor.ToString();
+                    await Task.Delay(3000);
+                    pictureBox2.BringToFront();
+
+                }
+                else
+                {
+                    MessageBox.Show("Previše ljudi u dizalu.", "Upozorenje!");
+                    label2.Text = floor.ToString();
+                    peopleCount = 0;
+                }
+            }
+            if (floor == 2)
+            {
+                if (textBox1.Text.Trim() == string.Empty)
+                {
+                    peopleCount = 0;
+                }
+                else
+                {
+                    peopleCount = Int32.Parse(textBox1.Text);
+                }
+                if (peopleCount < 13)
+                {
+                    pictureBox8.SendToBack();
+                    pictureBox9.Show();
+                    await Task.Delay(1000);
+                    pictureBox9.Hide();
 
                     pictureBox3.BringToFront();
                     floor = 1;
@@ -124,11 +158,11 @@ namespace Elevator
                 {
                     peopleCount = Int32.Parse(textBox1.Text);
                 }
-                if (peopleCount < 12)
+                if (peopleCount < 13)
                 {
                     pictureBox2.BringToFront();
                     pictureBox6.Show();
-                    
+
                     await Task.Delay(1000);
                     pictureBox6.Hide();
 
@@ -141,6 +175,7 @@ namespace Elevator
                     pictureBox4.BringToFront();
 
                 }
+
                 else
                 {
                     MessageBox.Show("Previše ljudi u dizalu.", "Upozorenje!");
@@ -148,6 +183,50 @@ namespace Elevator
                     peopleCount = 0;
                 }
             }
+            if (floor == 2)
+            {
+                if (textBox1.Text.Trim() == string.Empty)
+                {
+                    peopleCount = 0;
+                }
+                else
+                {
+                    peopleCount = Int32.Parse(textBox1.Text);
+                }
+                if (peopleCount < 13)
+                {
+                    pictureBox2.BringToFront();
+
+                    pictureBox9.Show();
+
+                    await Task.Delay(1000);
+                    pictureBox9.Hide();
+
+                    pictureBox6.Show();
+
+                    await Task.Delay(1000);
+                    pictureBox6.Hide();
+
+
+
+
+                    pictureBox1.BringToFront();
+                    floor = 0;
+                    peopleCount = 0;
+                    label2.Text = floor.ToString();
+                    await Task.Delay(3000);
+                    pictureBox4.BringToFront();
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Previše ljudi u dizalu.", "Upozorenje!");
+                    label2.Text = floor.ToString();
+                    peopleCount = 0;
+                }
+            }
+
 
         }
 
@@ -177,6 +256,148 @@ namespace Elevator
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            if (floor == 2)
+            {
+                pictureBox8.BringToFront();
+                label2.Text = floor.ToString();
+                await Task.Delay(3000);
+                pictureBox7.BringToFront();
+
+
+            }
+            if (floor == 1)
+            {
+                if (textBox1.Text.Trim() == string.Empty)
+                {
+                    peopleCount = 0;
+                }
+                else
+                {
+                    peopleCount = Int32.Parse(textBox1.Text);
+                }
+                if (peopleCount < 13)
+                {
+                    pictureBox2.BringToFront();
+                    pictureBox10.Show();
+
+                    await Task.Delay(1000);
+                    pictureBox10.Hide();
+
+
+                    pictureBox8.BringToFront();
+                    floor = 2;
+                    peopleCount = 0;
+                    label2.Text = floor.ToString();
+                    await Task.Delay(3000);
+                    pictureBox7.BringToFront();
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Previše ljudi u dizalu.", "Upozorenje!");
+                    label2.Text = floor.ToString();
+                    peopleCount = 0;
+                }
+            }
+            if (floor == 0)
+            {
+                if (textBox1.Text.Trim() == string.Empty)
+                {
+                    peopleCount = 0;
+                }
+                else
+                {
+                    peopleCount = Int32.Parse(textBox1.Text);
+                }
+                if (peopleCount < 13)
+                {
+                    pictureBox4.BringToFront();
+
+                    pictureBox5.Show();
+                    await Task.Delay(1000);
+                    pictureBox5.Hide();
+
+                    pictureBox10.Show();
+                    await Task.Delay(1000);
+                    pictureBox10.Hide();
+
+                    pictureBox8.BringToFront();
+                    floor = 2;
+                    peopleCount = 0;
+                    label2.Text = floor.ToString();
+                    await Task.Delay(3000);
+                    pictureBox7.BringToFront();
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Previše ljudi u dizalu.", "Upozorenje!");
+                    label2.Text = floor.ToString();
+                    peopleCount = 0;
+                }
+            }
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox11_Click_1(object sender, EventArgs e)
         {
 
         }
